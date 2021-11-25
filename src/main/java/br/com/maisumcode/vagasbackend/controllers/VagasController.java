@@ -1,17 +1,25 @@
 package br.com.maisumcode.vagasbackend.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import br.com.maisumcode.vagasbackend.models.Vaga;
+import br.com.maisumcode.vagasbackend.services.VagaService;
+import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class VagasController {
-    @RequestMapping(value = "v1/hello", produces = { "application/json" }, method = RequestMethod.GET)
-    public String hello() {
-        return "{\"value\":\"Olá, Arthur\"}";
+
+    private VagaService service = new VagaService();
+
+    @GetMapping(value = "v1/vagas", produces = { "application/json" })
+    public List<Vaga> listar() {
+        return service.listar();
     }
-    @RequestMapping(value = "v2/hello", produces = { "application/json" }, method = RequestMethod.GET)
-    public String hello2() {
-        return "Olá, Arthur 2";
+
+    @PostMapping(value = "v1/vagas", produces = { "application/json" })
+    public Vaga cadastrar(@RequestBody Vaga vaga) {
+        return service.cadastrar(vaga);
     }
 }
