@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class VagasController {
 
-    private VagaService service = new VagaService();
+    private VagaService service;
 
     @GetMapping(value = "v1/vagas", produces = { "application/json" })
     public List<Vaga> listar() {
