@@ -3,8 +3,8 @@ spring:
     name: mais1code-vagas-backend
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/mais1code
-    username: abc
-    password: cddcd
+    username: user
+    password: user
   jpa:
     hibernate.ddl-auto: update
     properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
