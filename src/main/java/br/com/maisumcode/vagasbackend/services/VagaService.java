@@ -2,7 +2,6 @@ package br.com.maisumcode.vagasbackend.services;
 
 import br.com.maisumcode.vagasbackend.models.Vaga;
 import br.com.maisumcode.vagasbackend.repositories.VagaRepository;
-import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -24,5 +23,9 @@ public class VagaService {
     public Page<Vaga> listar(int pagina, int tamanho) {
         Pageable pageable = PageRequest.of(pagina, tamanho);
         return vagaRepository.findAll(pageable);
+    }
+
+    public void remover(int id) {
+        vagaRepository.deleteById(id);
     }
 }

@@ -9,13 +9,17 @@ import javax.persistence.Id;
 public class Vaga {
     @Id
     @GeneratedValue
-    public Integer id;
+    private Integer id;
     public String titulo;
     public double salario;
     private LocalDate dataCriacao;
 
     public Vaga() {
         dataCriacao = LocalDate.now();
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public LocalDate getDataCriacao() {
